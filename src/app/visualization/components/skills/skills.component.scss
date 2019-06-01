@@ -1,0 +1,21 @@
+@import "~src/styles/base";
+.skill-tree__container {
+  @extend .container;
+
+  justify-items: stretch;
+  display: grid;
+  grid-gap: $grid-gap-base;
+  grid-template:
+    "title" auto
+    "tree" 1fr
+    / 1fr;
+  overflow: hidden;
+}
+.skill-tree__title {
+  grid-area: title;
+  text-align: center;
+}
+.skill-tree__tree {
+  grid-area: tree;
+  overflow: hidden;
+}

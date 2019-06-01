@@ -1,0 +1,46 @@
+@import '~src/styles/base';
+.dep-list__container {
+  @extend .container;
+
+  display: grid;
+  grid-template:
+    " title" auto
+    " content" 1fr
+    / 1fr;
+  height: 100%;
+}
+.dep-list__title {
+  grid-area: title;
+  justify-self: left;
+}
+.dep-list_content {
+  grid-area: content;
+}
+.dep-list__list {
+  list-style-type: none;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+.dep-list__list li {
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: $margin-base;
+}
+
+.dep-list__list li:hover {
+  background-color: lightgray;
+  left: 0.1em;
+}
+
+.dep-list__list a {
+  color: black;
+  text-decoration: none;
+  position: relative;
+  display: block;
+}
+
+.dep-list__list a:hover {
+  color: #607d8b;
+}

@@ -1,0 +1,23 @@
+@import "~src/styles/base";
+
+.skill-details__container {
+  @extend .container;
+
+  display: grid;
+  grid-gap: $grid-gap-base;
+
+  grid-template:
+    " title title" auto
+    " dependon dependants" 1fr
+    / 1fr 1fr;
+}
+.skill-details__title {
+  grid-area: title;
+  text-align: center;
+}
+.skill-details__dependon {
+  grid-area: dependon;
+}
+.skill-details__dependants {
+  grid-area: dependants;
+}

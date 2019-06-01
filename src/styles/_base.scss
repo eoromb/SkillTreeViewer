@@ -1,0 +1,21 @@
+@import "./colors";
+@import "./variables";
+
+.can-be-unlocked {
+  background: $canBeUnlockedColor;
+}
+.locked {
+  background: $lockedColor;
+}
+.unlocked {
+  background: $unlockedColor;
+}
+.container {
+  box-sizing: border-box;
+  padding: $padding-base;
+  border: $border-width solid grey;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+  height: calc(100% - #{$toolbar-height});
+}

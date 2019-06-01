@@ -1,0 +1,10 @@
+<div class="dep-list__container">
+  <h3 class="dep-list__title">{{title}}</h3>
+  <ul class="dep-list__content dep-list__list">
+    <li *ngFor="let dep of dependencies" [class.can-be-unlocked]="dep?.canBeUnlocked" [class.locked]="!dep?.canBeUnlocked && dep?.isLock" [class.unlocked]="!dep.isLock">
+      <a routerLink="/skills/{{dep?.id}}">
+        <mat-icon>{{dep?.isLock ? 'lock' : 'lock_open'}}</mat-icon> {{dep?.name}}
+      </a>
+    </li>
+  </ul>
+</div>

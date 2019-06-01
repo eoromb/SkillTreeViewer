@@ -1,0 +1,17 @@
+<div class="skill-details__container">
+  <div class="skill-details__title">
+    <h2>{{skill.name}}</h2>
+    <button mat-button [disabled]="!skill?.canBeUnlocked" (click)="unlock()"
+      [matTooltip]="skill?.canBeUnlocked ? 'Unlock' : null" [class.can-be-unlocked]="skill?.canBeUnlocked"
+      [class.locked]="!skill?.canBeUnlocked && skill?.isLock" [class.unlocked]="!skill.isLock">
+      <mat-icon class="material-icons">{{skill.isLock ? 'lock' : 'lock_open'}}</mat-icon>
+    </button>
+  </div>
+  <div class="skill-details__dependon">
+    <stv-dependencies-list [dependencies]="skill?.dependOns" title="Depends On">
+    </stv-dependencies-list>
+  </div>
+  <div class="skill-details__dependants">
+    <stv-dependencies-list [dependencies]="skill?.dependants" title="Dependants"></stv-dependencies-list>
+  </div>
+</div>
