@@ -28,3 +28,7 @@
 
 1) Run `npm install` to install npm packages. <br/>
 2) Run `npm run compodoc` to generate documentation.
+
+## Operation
+
+Please use scroll to zoom in/out skill's tree

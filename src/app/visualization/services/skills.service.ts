@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { SkillTreeDesc } from 'src/app/core/skill-tree/skill-tree-desc';
 import { SkillDesc } from 'src/app/core/skill-tree/skill-desc';
 import { SkillDependenciesDesc } from 'src/app/core/skill-tree/skill-dependencies-desc';
@@ -12,7 +12,7 @@ import { createSkillViewModel } from '../view-models/skill.view-model';
   providedIn: 'root'
 })
 export class SkillsService {
-  skillsTree: SkillTree;
+  private skillsTree: SkillTree;
   /**
    * Creates Demo skill tree
    */
@@ -53,8 +53,16 @@ export class SkillsService {
     skillTree.load(treeDesc);
     return skillTree;
   }
-  constructor() {
-    this.skillsTree = SkillsService.createTestTree();
+  /**
+   * Create skill service
+   * @param skillTree skill tree to use in service. If not tree specified creates demo tree
+   */
+  constructor(@Optional() skillTree?: SkillTree) {
+    if (skillTree != null) {
+      this.skillsTree = skillTree;
+    } else {
+      this.skillsTree = SkillsService.createTestTree();
+    }
   }
   /**
    * Gets skill by id
