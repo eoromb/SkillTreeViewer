@@ -4,10 +4,11 @@ import { GraphNode } from './graph-node';
  * Generic graph
  */
 export class Graph<T> {
-    nodesByIdMap = new Map<number, GraphNode<T>>();
-    nodes: GraphNode<T>[] = [];
+    nodesByIdMap: Map<number, GraphNode<T>>;
+    nodes: GraphNode<T>[];
 
     constructor() {
+        this.reset();
     }
     /**
      * Adds node to graph
@@ -58,5 +59,12 @@ export class Graph<T> {
             throw new Error(`Node with id = ${id} is not in tree`);
         }
         return node;
+    }
+    /**
+     * Reset graph
+     */
+    reset() {
+        this.nodes = [];
+        this.nodesByIdMap = new Map<number, GraphNode<T>>();
     }
 }

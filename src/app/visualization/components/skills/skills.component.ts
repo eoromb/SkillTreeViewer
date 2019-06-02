@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, HostListener, ChangeDetectorRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Network } from 'vis';
 import { SkillsService } from '../../services/skills.service';
-import { createTreeViewModel } from '../../view-models/tree.view-model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { createGraphViewModel } from '../../view-models/graph.view-model';
 
 @Component({
   selector: 'stv-skills',
@@ -30,7 +30,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
   draw() {
     this.destroy();
     const container = this.treeContainer.nativeElement;
-    const treeViewModel = createTreeViewModel(this.skillService.getSkillTree());
+    const treeViewModel = createGraphViewModel(this.skillService.getSkillTree());
     const options = {
       autoResize: false,
       interaction: {

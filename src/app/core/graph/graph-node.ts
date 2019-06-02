@@ -2,13 +2,19 @@
  * Node of the graph
  */
 export class GraphNode<T> {
-    id: number;
-    data: T;
+    private _id: number;
+    get id() {
+        return this._id;
+    }
+    private _data: T;
+    get data() {
+        return this._data;
+    }
     parents: GraphNode<T>[];
     children: GraphNode<T>[];
     constructor(id: number, data: T) {
-        this.id = id;
-        this.data = data;
+        this._id = id;
+        this._data = data;
         this.parents = [];
         this.children = [];
     }

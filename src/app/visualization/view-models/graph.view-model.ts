@@ -1,6 +1,6 @@
 import { GraphNode } from 'src/app/core/graph/graph-node';
 import { Skill } from 'src/app/core/skill-tree/skill';
-import { SkillTree } from 'src/app/core/skill-tree/skill-tree';
+import { Graph } from 'src/app/core/graph/graph';
 
 const lockedColor = '#2B7CEE';
 const canBeUnlockedColor = '#2B7C88';
@@ -24,7 +24,7 @@ export interface EdgeViewModel {
 /**
  * Tree view model
  */
-export interface TreeViewModel {
+export interface GraphViewModel {
     nodes: NodeViewModel[];
     edges: EdgeViewModel[];
 }
@@ -58,11 +58,11 @@ export function createEdgeViewModel(from: GraphNode<Skill>, to: GraphNode<Skill>
 /**
  * Creates tree view model
  */
-export function createTreeViewModel(skillTree: SkillTree): TreeViewModel {
+export function createGraphViewModel(skillGraph: Graph<Skill>): GraphViewModel {
     const nodes: NodeViewModel[] = [];
     const edges: EdgeViewModel[] = [];
-    const allNodes = skillTree.getNodes();
-    const rootNodes = skillTree.getRootNodes();
+    const allNodes = skillGraph.getNodes();
+    const rootNodes = skillGraph.getRootNodes();
     for (const node of allNodes) {
         nodes.push(createNodeViewMode(node));
     }

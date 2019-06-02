@@ -5,14 +5,17 @@ import { SkillDependency } from 'src/app/core/skill-tree/skill-dependencies';
 import { SkillTree } from 'src/app/core/skill-tree/skill-tree';
 import { createSkillViewModel } from '../view-models/skill.view-model';
 
+/**
+ * SKills service
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
   skillsTree: SkillTree;
-  constructor() {
-    this.skillsTree = SkillsService.createTestTree();
-  }
+  /**
+   * Creates Demo skill tree
+   */
   static createTestTree() {
     const skills: SkillDesc[] = [
       { name: 'Mage', id: 1 },
@@ -48,6 +51,13 @@ export class SkillsService {
     };
     return SkillTree.createSkillTree(treeDesc);
   }
+  constructor() {
+    this.skillsTree = SkillsService.createTestTree();
+  }
+  /**
+   * Gets skill by id
+   * @param id skill id
+   */
   getSkillById(id) {
     const skill = this.skillsTree.getSkillById(id);
     if (skill == null) {
@@ -58,9 +68,15 @@ export class SkillsService {
 
     return createSkillViewModel(skill, dependOns, dependants);
   }
+  /**
+   * Gets skill tree
+   */
   getSkillTree() {
     return this.skillsTree;
   }
+  /**
+   * Unlock skill
+   */
   unlockSkill(id) {
     this.skillsTree.unlockSkill(id);
     return this.getSkillById(id);

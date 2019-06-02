@@ -4,6 +4,9 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { SkillsService } from '../services/skills.service';
 import { SkillViewModel } from '../view-models/skill.view-model';
 
+/**
+ * Resolves skill data for SkillDetailsComponent
+ */
 @Injectable()
 export class SkillResolver implements Resolve<SkillViewModel> {
   constructor(

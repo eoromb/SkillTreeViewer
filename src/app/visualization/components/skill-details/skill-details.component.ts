@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SkillsService } from '../../services/skills.service';
 import { SkillViewModel } from '../../view-models/skill.view-model';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'stv-skill-details',

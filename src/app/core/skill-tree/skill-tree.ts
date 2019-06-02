@@ -5,8 +5,14 @@ import { SkillTreeDesc } from './skill-tree-desc';
 import { SkillDependency } from './skill-dependencies';
 import { Graph } from '../graph/graph';
 
+/**
+ * Skill tree
+ */
 export class SkillTree extends Graph<Skill> {
 
+    /**
+     * Skill tree factory method
+     */
     static createSkillTree(treeDesc: SkillTreeDesc): SkillTree {
         if (treeDesc == null) {
             throw new Error('Tree desc is null');
@@ -32,6 +38,9 @@ export class SkillTree extends Graph<Skill> {
 
     constructor() {
         super();
+    }
+    load() {
+        
     }
     /**
      * Adds skill
@@ -60,7 +69,7 @@ export class SkillTree extends Graph<Skill> {
             skillNode.data.isLock = false;
             skillNode.data.canBeUnlocked = false;
             for (const childNode of skillNode.children) {
-                this.updateCanBeUnlocked(childNode)
+                this.updateCanBeUnlocked(childNode);
             }
         }
         return skillNode.data;
@@ -99,6 +108,9 @@ export class SkillTree extends Graph<Skill> {
             node.data.canBeUnlocked = node.parents.length === 0 || false;
         }
     }
+    /**
+     * Update can be unlocked state of skill
+     */
     private updateCanBeUnlocked(skillNode: GraphNode<Skill>) {
         skillNode.data.canBeUnlocked = skillNode.parents.length === 0 || skillNode.parents.every(p => !p.data.isLock);
     }
