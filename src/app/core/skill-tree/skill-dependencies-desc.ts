@@ -1,7 +1,7 @@
 /**
  * SKill dependencies description
  */
-export interface SkillDependency {
+export interface SkillDependenciesDesc {
     id: number;
     dependOnIds: number[];
 }

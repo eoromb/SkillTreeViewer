@@ -1,4 +1,4 @@
-import { SkillDependency } from './skill-dependencies';
+import { SkillDependenciesDesc } from './skill-dependencies-desc';
 import { SkillDesc } from './skill-desc';
 
 /**
@@ -6,5 +6,5 @@ import { SkillDesc } from './skill-desc';
  */
 export interface SkillTreeDesc {
     skills: SkillDesc[];
-    skillsDependencies: SkillDependency[];
+    skillsDependencies: SkillDependenciesDesc[];
 }

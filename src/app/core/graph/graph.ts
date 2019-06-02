@@ -4,11 +4,11 @@ import { GraphNode } from './graph-node';
  * Generic graph
  */
 export class Graph<T> {
-    nodesByIdMap: Map<number, GraphNode<T>>;
-    nodes: GraphNode<T>[];
+    private nodesByIdMap: Map<number, GraphNode<T>>;
+    private nodes: GraphNode<T>[];
 
     constructor() {
-        this.reset();
+        this.clear();
     }
     /**
      * Adds node to graph
@@ -61,9 +61,9 @@ export class Graph<T> {
         return node;
     }
     /**
-     * Reset graph
+     * Clear graph
      */
-    reset() {
+    clear() {
         this.nodes = [];
         this.nodesByIdMap = new Map<number, GraphNode<T>>();
     }

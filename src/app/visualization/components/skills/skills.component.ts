@@ -4,6 +4,9 @@ import { Network } from 'vis';
 import { SkillsService } from '../../services/skills.service';
 import { createGraphViewModel } from '../../view-models/graph.view-model';
 
+/**
+ * Shows skill tree
+ */
 @Component({
   selector: 'stv-skills',
   templateUrl: './skills.component.html',

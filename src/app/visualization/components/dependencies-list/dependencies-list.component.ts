@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SkillViewModel } from '../../view-models/skill.view-model';
 
+/**
+ * Shows skill dependencies list
+ */
 @Component({
   selector: 'stv-dependencies-list',
   templateUrl: './dependencies-list.component.html',

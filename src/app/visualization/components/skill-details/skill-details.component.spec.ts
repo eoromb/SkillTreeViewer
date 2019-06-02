@@ -25,9 +25,7 @@ describe('SkillDetailsComponent', () => {
       imports: [MatIconModule, MatTooltipModule, SharedModule, VisualizationRoutingModule],
       providers: [
         { provide: SkillsService, useValue: jasmine.createSpyObj('SkillsService', ['unlockSkill']) },
-        {
-          provide: ActivatedRoute, useValue: {data: of({skill})}
-        },
+        { provide: ActivatedRoute, useValue: {data: of({skill})}}
       ]
     }).compileComponents();
     skillsService = TestBed.get(SkillsService);

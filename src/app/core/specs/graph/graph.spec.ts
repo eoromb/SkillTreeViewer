@@ -32,9 +32,9 @@ describe('Graph', () => {
         graph.addNode(graphNodes[1]);
         expect(graph.getNodes().length).toEqual(2);
     });
-    it('should reset graph', () => {
+    it('should clear graph', () => {
         graph.addNode(graphNodes[0]);
-        graph.reset();
+        graph.clear();
         expect(graph.getNodes().length).toEqual(0);
     });
     it('should add parents to node', () => {

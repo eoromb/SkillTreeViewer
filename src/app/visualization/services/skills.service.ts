@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SkillTreeDesc } from 'src/app/core/skill-tree/skill-tree-desc';
 import { SkillDesc } from 'src/app/core/skill-tree/skill-desc';
-import { SkillDependency } from 'src/app/core/skill-tree/skill-dependencies';
+import { SkillDependenciesDesc } from 'src/app/core/skill-tree/skill-dependencies-desc';
 import { SkillTree } from 'src/app/core/skill-tree/skill-tree';
 import { createSkillViewModel } from '../view-models/skill.view-model';
 
@@ -32,7 +32,7 @@ export class SkillsService {
       { name: 'Knockout', id: 12 },
       { name: 'Roundhouse Kick', id: 13 }
     ];
-    const skillsDependencies: SkillDependency[] = [
+    const skillsDependencies: SkillDependenciesDesc[] = [
       { id: 2, dependOnIds: [1] },
       { id: 3, dependOnIds: [2] },
       { id: 4, dependOnIds: [3] },
@@ -49,7 +49,9 @@ export class SkillsService {
       skills,
       skillsDependencies
     };
-    return SkillTree.createSkillTree(treeDesc);
+    const skillTree = new SkillTree();
+    skillTree.load(treeDesc);
+    return skillTree;
   }
   constructor() {
     this.skillsTree = SkillsService.createTestTree();

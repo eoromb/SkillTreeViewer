@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import { SkillsService } from '../../services/skills.service';
 import { SkillViewModel } from '../../view-models/skill.view-model';
 
+/**
+ * Shows skill details
+ */
 @Component({
   selector: 'stv-skill-details',
   templateUrl: './skill-details.component.html',

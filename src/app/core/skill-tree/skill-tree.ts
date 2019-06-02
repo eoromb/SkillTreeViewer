@@ -2,18 +2,20 @@ import { GraphNode } from '../graph/graph-node';
 import { Skill, createSkill } from './skill';
 import { SkillDesc } from './skill-desc';
 import { SkillTreeDesc } from './skill-tree-desc';
-import { SkillDependency } from './skill-dependencies';
+import { SkillDependenciesDesc } from './skill-dependencies-desc';
 import { Graph } from '../graph/graph';
 
 /**
  * Skill tree
  */
 export class SkillTree extends Graph<Skill> {
-
+    constructor() {
+        super();
+    }
     /**
-     * Skill tree factory method
+     * Loads tree from tree description
      */
-    static createSkillTree(treeDesc: SkillTreeDesc): SkillTree {
+    load(treeDesc: SkillTreeDesc): SkillTree {
         if (treeDesc == null) {
             throw new Error('Tree desc is null');
         }
@@ -24,23 +26,15 @@ export class SkillTree extends Graph<Skill> {
             throw new Error('skills dependencies are null');
         }
 
-        const skillTree = new SkillTree();
+        this.clear();
         for (const skillDesc of treeDesc.skills) {
-            skillTree.addSkill(skillDesc);
+            this.addSkill(skillDesc);
         }
         for (const skillDep of treeDesc.skillsDependencies) {
-            skillTree.addDependencies(skillDep);
+            this.addDependencies(skillDep);
         }
-        skillTree.resetState();
-
-        return skillTree;
-    }
-
-    constructor() {
-        super();
-    }
-    load() {
-        
+        this.resetState();
+        return this;
     }
     /**
      * Adds skill
@@ -56,7 +50,7 @@ export class SkillTree extends Graph<Skill> {
      * Add skill dependencies
      * @param skillDeps skill dependencies
      */
-    addDependencies(skillDeps: SkillDependency) {
+    addDependencies(skillDeps: SkillDependenciesDesc) {
         this.addNodeParents(skillDeps.id, skillDeps.dependOnIds);
     }
     /**
@@ -79,8 +73,8 @@ export class SkillTree extends Graph<Skill> {
      * @param id skill id
      */
     getSkillById(id: number): Skill {
-        const skillNode = this.nodesByIdMap.get(id);
-        return skillNode != null ? skillNode.data : null;
+        const node = this.getNodeById(id);
+        return node != null ? node.data : null;
     }
     /**
      * Gets skill's depend On skills
