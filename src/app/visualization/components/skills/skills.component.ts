@@ -30,6 +30,9 @@ export class SkillsComponent implements OnInit, AfterViewInit {
       this.network = null;
     }
   }
+  /**
+   * Draws skill graph
+   */
   draw() {
     this.destroy();
     const container = this.treeContainer.nativeElement;
@@ -66,6 +69,10 @@ export class SkillsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.draw();
   }
+  /**
+   * On node clicked event
+   * @param nodeId clicked node id
+   */
   onNodeClicked(nodeId) {
     this.router.navigate([`./${nodeId}`], { relativeTo: this.route });
   }

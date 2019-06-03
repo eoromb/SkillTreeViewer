@@ -1,6 +1,5 @@
 import { SkillTree } from '../../skill-tree/skill-tree';
 import { skills } from './test-data';
-import { SkillTreeDesc } from '../../skill-tree/skill-tree-desc';
 /**
  * Tests for skill tree
  */

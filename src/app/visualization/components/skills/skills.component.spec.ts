@@ -1,13 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule, MatTooltipModule } from '@angular/material';
 import { SkillsComponent } from './skills.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { VisualizationRoutingModule } from '../../visualization-routing.module';
-import { SkillDetailsComponent } from '../skill-details/skill-details.component';
-import { DependenciesListComponent } from '../dependencies-list/dependencies-list.component';
 import { SkillsService } from '../../services/skills.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
 
 /**
  * Skills details component tests
