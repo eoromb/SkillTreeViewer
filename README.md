@@ -1,4 +1,32 @@
-##Docker deployment
+## Description
+#### Summary
+Displays the mage graph (the graph of skills) as tree. 
+
+###### Each node of the graph provides the following information:
+* Name of the skill
+* Is current skill unlocked
+* Can current skill be unlocked
+
+Node style depends on skill's locking state. <br />
+Each node could be clicked on to view the detail information. <br />
+###### Detail information contains:
+* Name of the skill
+* Is current skill unlocked
+* Can current skill be unlocked
+* All node's parents
+* All node's children
+
+#### About Skill Trees
+A skill tree is often used in role playing games or strategy games to allow the player more powerful actions after playing a while. At a certain point in the game the player can select a skill of his or her choice to unlock that skill if possible. Skills are connected like branches of a tree and a skill can only be unlocked if the previous skill on that tree is unlocked already.
+Some Skill Trees are not trees but graphs. This means that some skills depend on more than one previous skill. They can only be unlocked if all of the previous skills are unlocked already.
+
+## Tech summary
+
+* Angular + RxJS + CSS Grid + Material design
+* Jasmine for testing
+* Docker for deployment
+
+## Docker deployment
 
 1) Build image using `docker build -t skilltreeviewer:1.0.0 -f nginx.dockerfile .` <br/>
 2) Run image using `docker run -d -p 8080:80 skilltreeviewer:1.0.0` <br/>
